@@ -318,7 +318,7 @@ class Grader extends CI_Controller
 				}
 				else
 				{
-					$diff_cmd = 'diff -q ' . $tc_path . '/' . $v['output'] . ' ' . $out_path . '/' . $v['output'] . ' > ' . $out_path . '/diff';
+					$diff_cmd = 'diff -q --strip-trailing-cr ' . $tc_path . '/' . $v['output'] . ' ' . $out_path . '/' . $v['output'] . ' > ' . $out_path . '/diff';
 					exec($diff_cmd, $output, $retval);
 
 					$diff = file_get_contents($out_path . '/diff');
